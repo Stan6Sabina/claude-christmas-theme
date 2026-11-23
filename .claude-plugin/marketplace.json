@@ -1,0 +1,11 @@
+{
+  "name": "claude-christmas-theme",
+  "owner": { "name": "Stan6Sabina" },
+  "plugins": [
+    {
+      "name": "christmas",
+      "source": "./",
+      "description": "A few subtle Christmas touches for Claude Code in the desktop app: a faint lit tree, a string of lights, holly, a gingerbread cookie, a Santa hat on your messages and a countdown. No snow."
+    }
+  ]
+}
