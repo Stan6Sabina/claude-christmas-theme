@@ -82,6 +82,12 @@ async function hideAll($: EngineInterface): Promise<void> {
   $.ui.status(undefined)
 }
 
+async function refreshCountdown($: EngineInterface): Promise<void> {
+  if (!(await isHidden($))) {
+    $.ui.status(countdown(await $.clock.now()))
+  }
+}
+
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     await $.command.register({
@@ -96,11 +102,23 @@ export const register: Register = on => {
     }
 
     // Keep the countdown right past midnight.
-    $.clock.every(HOUR, async () => {
-      if (!(await isHidden($))) {
-        $.ui.status(countdown(await $.clock.now()))
-      }
-    })
+    $.clock.every(HOUR, () => refreshCountdown($))
+
+    return next(e)
+  })
+
+  // A new chat starts before the app has connected to it, so the countdown set
+  // at the start can miss the app. Send it again once the app connects, and
+  // with each message as a fallback.
+  on('session.attach', async ($, e, next) => {
+    const attached = await next(e)
+    await refreshCountdown($)
+
+    return attached
+  })
+
+  on('prompt.submit', async ($, e, next) => {
+    await refreshCountdown($)
 
     return next(e)
   })
