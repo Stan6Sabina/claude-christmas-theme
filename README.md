@@ -16,10 +16,7 @@ The decorations show in the desktop app (and the mobile app). The terminal shows
 
 ## Install
 
-🎄 **Christmas theme for Claude Code**  
-https://github.com/Stan6Sabina/claude-christmas-theme
-
-**In the Claude desktop app:** open the Code tab, click **+** next to the message box → **Plugins** → **Add marketplace** → **Add from a repository**, enter `Stan6Sabina/claude-christmas-theme`, then click **Add plugin**.
+**In the Claude desktop app:** open the Code tab, click **+** next to the message box → **Plugins** → **Add marketplace** → **Add from a repository**, enter `Stan6Sabina/claude-christmas-theme`, then click **Add plugin**, then click **Add to this computer**.
 
 **Or in a terminal** (needs Claude Code installed):
 
