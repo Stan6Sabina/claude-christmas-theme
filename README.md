@@ -16,20 +16,19 @@ The decorations show in the desktop app (and the mobile app). The terminal shows
 
 ## Install
 
-At the prompt of a Claude Code session in a terminal:
+🎄 **Christmas theme for Claude Code**  
+https://github.com/Stan6Sabina/claude-christmas-theme
 
-```
-/plugin install christmas --marketplace Stan6Sabina/claude-christmas-theme
-```
+**In the Claude desktop app:** open the Code tab, click **+** next to the message box → **Plugins** → **Add marketplace** → **Add from a repository**, enter `Stan6Sabina/claude-christmas-theme`, then click **Add plugin**.
 
-Answer `y` to add the marketplace, then press Enter to install it for your user.
-
-Or from a shell:
+**Or in a terminal** (needs Claude Code installed):
 
 ```bash
 claude plugin install christmas --marketplace Stan6Sabina/claude-christmas-theme
 ```
 
-In the desktop app, where `/plugin` does not run: click **+** next to the prompt box, then **Plugins**, **Add marketplace** with `Stan6Sabina/claude-christmas-theme`, then **Add plugin**.
+Then restart the app and open a new chat in the Code tab. Type `/christmas` to hide or show the decorations.
 
-New sessions pick it up automatically. In a session that was already open, type `/reload-plugins`.
+## Note
+
+If you use it, send me a picture on @fit.dev.sabi :)
