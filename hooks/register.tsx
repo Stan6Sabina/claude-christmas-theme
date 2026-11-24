@@ -61,17 +61,13 @@ async function isHidden($: EngineInterface): Promise<boolean> {
 }
 
 async function showAll($: EngineInterface): Promise<void> {
-  let set
+  // The theme stands even before the app connects to a new chat, and draws as
+  // soon as it does, so there is nothing to report when it isn't drawn yet.
   try {
-    set = await $.theme.set({ ...BACKDROP, style: { UserMessage: HATTED_BUBBLE } })
-  } catch (error) {
+    await $.theme.set({ ...BACKDROP, style: { UserMessage: HATTED_BUBBLE } })
+  } catch {
     // A build that takes no message style still gets the tree, lights and holly.
-    $.ui.log(String(error))
-    set = await $.theme.set(BACKDROP)
-  }
-
-  if (!set.isDrawn) {
-    $.ui.log(set.reason)
+    await $.theme.set(BACKDROP)
   }
 
   $.ui.status(countdown(await $.clock.now()))
